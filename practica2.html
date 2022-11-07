@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--PRIMER EJERCICIO-->
+    <h2>Grados centigrados:</h2>
+    <input oninput="convertirGradosCentigradosAGradosFahrenheint()" id="grados"></p>
+    <p>El resultado es: </p>
+    <p id="res"></p>
+    <!--SEGUNDO EJERCICIO-->
+    <h2>Calcular porcentajes:</h2>
+    <input type="text" name="" id="numeroreque">
+    <button onclick="calcularPorcentajes();">OBTENER RESULTADO
+    </button>
+    <p>El resultado es:</p>
+    <p id="porcent"></p>
+    <p id="resp1"></p>
+    <!--TERCER EJERCICIO-->
+    
+        
+            <legend>Ingrese Numeros</legend>
+            <input type="number"  id="fil1" min="1" value="1"><br/>
+            <input type="number"  id="colum" min="1" value="1"><br/>
+        
+    <button onclick="generarTablaHTML()">Generar Tabla</button>
+        
+
+
+</body>
+<!--SCRIPTS-->
+<script>
+    //PRIMER EJERCICIO
+    function convertirGradosCentigradosAGradosFahrenheint() {
+        let gradosC = document.getElementById("grados").value;
+        let gradosF = 0;
+        gradosF = 32 + (9 * gradosC / 5)
+        if (gradosF >= 212) {
+            document.getElementById("res").innerHTML = "Punto de ebullición del agua";
+        } else {
+            if (gradosF >= 98.6) {
+                document.getElementById("res").innerHTML = "Temperatura del cuerpo humano";
+            } else
+                if (gradosF >= 77) {
+                    document.getElementById("res").innerHTML = "Temperatura ambiente";
+                } else {
+                    if (gradosF >= 32) {
+                        document.getElementById("res").innerHTML = "Punto de congelación del agua";
+                    } else {
+                        document.getElementById("res").innerHTML = "Cero absoluto";
+
+                    }
+
+                }
+        }
+    }
+
+    //SEGUNDO EJERCICIO
+    function calcularPorcentajes() {
+        var num2;
+        var num = parseInt(document.getElementById("numeroreque").value);
+        if (num >= 500) {
+            num2 = num - (num * 0.07)
+        } else {
+            num2 = num + (num * 0.5)
+        }
+        document.getElementById("resp1").innerHTML = num2;
+    }
+
+    //TERCER EJERCICIO
+    function generarTablaHTML() {
+        var i,j
+        var Filas=document.getElementById("fil1").value
+        var Columnas=document.getElementById("colum").value
+        var res=Filas*Columnas;
+             document.write("<table border>")
+
+    for (i = 0; i < Filas; i++) {
+        document.write("<tr>");
+
+    for (j = 0; j < Columnas; j++) {
+        document.write("<td>");
+        document.write(res);
+            res --;
+        document.write("</td>");
+    }
+    document.write("</tr>");        
+
+    }
+    document.write("</table>")
+    }
+    
+
+</script>
